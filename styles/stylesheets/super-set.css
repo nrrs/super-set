@@ -1,0 +1,89 @@
+/* line 1, ../sass/_base.scss */
+body {
+  background: #fafafa;
+  padding: 15px;
+}
+
+/* line 1, ../sass/_board.scss */
+#board {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+/* line 1, ../sass/_card.scss */
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid red;
+  flex-basis: 30%;
+  box-sizing: border-box;
+  margin-bottom: 30px;
+  min-height: 150px;
+  border: 1px solid #e6e6e6;
+  border-radius: 3px;
+  background-color: #fff;
+}
+
+/* line 18, ../sass/_card.scss */
+.card > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* line 23, ../sass/_card.scss */
+.card > div:before {
+  content: "";
+}
+/* line 27, ../sass/_card.scss */
+.card > div.circle:before, .card > div.square:before, .card > div.diamond:before {
+  height: 45px;
+  width: 45px;
+  border: 10px solid;
+}
+/* line 35, ../sass/_card.scss */
+.card > div.green:before {
+  border-color: #28B78D;
+}
+/* line 38, ../sass/_card.scss */
+.card > div.green.solid:before {
+  background: #28B78D;
+}
+/* line 41, ../sass/_card.scss */
+.card > div.green.striped:before {
+  background: repeating-linear-gradient(to bottom, #fafafa, #fafafa 5px, #28B78D 5px, #28B78D 10px);
+}
+/* line 50, ../sass/_card.scss */
+.card > div.blue:before {
+  border-color: #243743;
+}
+/* line 53, ../sass/_card.scss */
+.card > div.blue.solid:before {
+  background: #243743;
+}
+/* line 56, ../sass/_card.scss */
+.card > div.blue.striped:before {
+  background: repeating-linear-gradient(to bottom, #fafafa, #fafafa 5px, #243743 5px, #243743 10px);
+}
+/* line 65, ../sass/_card.scss */
+.card > div.grey:before {
+  border-color: #8A949B;
+}
+/* line 68, ../sass/_card.scss */
+.card > div.grey.solid:before {
+  background: #8A949B;
+}
+/* line 71, ../sass/_card.scss */
+.card > div.grey.striped:before {
+  background: repeating-linear-gradient(to bottom, #fafafa, #fafafa 5px, #8A949B 5px, #8A949B 10px);
+}
+/* line 81, ../sass/_card.scss */
+.card .circle:before {
+  border-radius: 100%;
+}
+/* line 84, ../sass/_card.scss */
+.card .diamond:before {
+  width: 37.5px;
+  transform: rotate(45deg);
+}

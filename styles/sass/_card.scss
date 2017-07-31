@@ -1,0 +1,147 @@
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid red;
+  flex-basis: 30%;
+  box-sizing: border-box;
+  margin-bottom: $var*2;
+  min-height: $var*10;
+  border: 1px solid #e6e6e6;
+  border-radius: 3px;
+  background-color: $card-bg;
+}
+
+
+// shapes
+.card {
+  &>div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:before {
+      content: ""
+    }
+
+    &.circle:before,
+    &.square:before,
+    &.diamond:before {
+      height: $var*3;
+      width: $var*3;
+      border: 10px solid;
+    }
+
+    &.green:before {
+      border-color: $green;
+    }
+    &.green.solid:before {
+      background: $green;
+    }
+    &.green.striped:before {
+      background: repeating-linear-gradient(
+        to bottom,
+        $bg,
+        $bg 5px,
+        $green 5px,
+        $green 10px
+      );
+    }
+    &.blue:before {
+      border-color: $blue;
+    }
+    &.blue.solid:before {
+      background: $blue;
+    }
+    &.blue.striped:before {
+      background: repeating-linear-gradient(
+        to bottom,
+        $bg,
+        $bg 5px,
+        $blue 5px,
+        $blue 10px
+      );
+    }
+    &.grey:before {
+      border-color: $grey;
+    }
+    &.grey.solid:before {
+      background: $grey;
+    }
+    &.grey.striped:before {
+      background: repeating-linear-gradient(
+        to bottom,
+        $bg,
+        $bg 5px,
+        $grey 5px,
+        $grey 10px
+      );
+    }
+  }
+  .circle:before{
+    border-radius: 100%;
+  }
+  .diamond:before{
+    width: $var*2.5;
+    transform: rotate(45deg);
+  }
+
+  // .triangle {
+  //   &:before  {
+  //     border-left: $var*3 solid transparent !important;
+  //     border-right: $var*3 solid transparent !important;
+  //     border-bottom: $var*4 solid;
+  //     height: 0 !important;
+  //     width: 0 !important;
+  //     background: transparent !important;
+  //   }
+  //   &.stroke:after {
+  //     content: "";
+  //     position: absolute;
+  //     margin-top: 3px;
+  //     border-left: 26.3px solid transparent;
+  //     border-right: 26.3px solid transparent;
+  //     border-bottom: 35px solid $bg;
+  //     height: 0;
+  //     width: 0;
+  //     background: transparent;
+  //   }
+  //   &.striped:after {
+  //     content: "";
+  //     position: absolute;
+  //     margin-top: 3px;
+  //     border-left: 26.3px solid transparent;
+  //     border-right: 26.3px solid transparent;
+  //     border-bottom: 35px solid $bg;
+  //     height: 0;
+  //     width: 0;
+  //     background: blue;
+  //     // background: repeating-linear-gradient(
+  //     //   to bottom,
+  //     //   $bg,
+  //     //   $bg 5px,
+  //     //   $grey 5px,
+  //     //   $grey 10px
+  //     // );
+  //     &::after {
+  //       content: "";
+  //       position: absolute;
+  //       margin-top: 3px;
+  //       border-left: 26.3px solid transparent;
+  //       border-right: 26.3px solid transparent;
+  //       border-bottom: 35px solid $bg;
+  //       height: 0;
+  //       width: 0;
+  //       background: red;
+  //       // background: repeating-linear-gradient(
+  //       //   to bottom,
+  //       //   $bg,
+  //       //   $bg 5px,
+  //       //   $grey 5px,
+  //       //   $grey 10px
+  //       // );
+  //     }
+  //   }
+  // }
+
+}

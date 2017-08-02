@@ -18,16 +18,17 @@ class Game {
         game.colorsSet(cards) &&
         game.patternsSet(cards) &&
         game.numbersSet(cards) ) {
-
+      this.flash('success', 'Valid Set!');
       game.addPoints();
-      this.flash('success', 'Valid Set!').then(
+
+      setTimeout(() => {
         cards.forEach ( (card, i) => {
           const bye = document.querySelector(`[data-combo-id='${cards[i].comboId}']`);
           const drawn = game.deck.shift();
           const newCard = game.createNewCard(drawn, i);
           bye.parentNode.replaceChild(newCard, bye);
-        })
-      );
+        });
+      }, 1500);
 
     } else {
       this.flash('error', 'Not a valid set!');
@@ -40,13 +41,24 @@ class Game {
   flash(type, message) {
     const body = document.getElementById('alerts');
 
-    if (type === 'success') {
-      body.classList.add('success');
-    } else {
-      body.classList.add('error');
-    }
-    setTimeout(() => body.classList.remove('error'), 500);
-    setTimeout(() => body.classList.remove('success'), 500);
+    body.classList.remove('bounceOutUp');
+    body.classList.add(type);
+    body.classList.add('bounceInDown');
+    body.innerHTML = `${message}`;
+
+    setTimeout(() => {
+      body.classList.remove('bounceInDown');
+      const arr = document.querySelectorAll('.selected');
+      arr.forEach(el => {
+        el.classList.remove('selected');
+      });
+    }, 1250);
+    setTimeout(() => {
+      body.classList.add('bounceOutUp');
+    }, 1250);
+    setTimeout(() => {
+      body.classList.remove(type);
+    }, 1500);
   }
 
   createNewCard(card, i) {
@@ -132,23 +144,6 @@ class Game {
     }
   }
 
-  showAlert(message) {
-    const alertBox = document.getElementById('alerts');
-    alertBox.classList.add('bounceInDown', 'animated');
-    alertBox.innerHTML = `${message}`;
-    // setTimeout(game.clearAlert, 750);
-    setTimeout(() => {
-      alertBox.classList.remove('bounceInDown', 'animated');
-      alertBox.classList.add('bounceOutUp', 'animated');
-    }, 750);
-  }
-  clearAlert() {
-    const alertBox = document.getElementById('alerts');
-    alertBox.classList.remove('bounceInDown', 'animated');
-    alertBox.classList.add('bounceOutUp', 'animated');
-    alertBox.innerHTML = '';
-  }
-
   selectCard(e) {
     e.preventDefault();
 
@@ -162,10 +157,6 @@ class Game {
           selectedCards.push(card);
 
           if (selectedCards.length === 3) {
-            const arr = document.querySelectorAll('.selected');
-            arr.forEach(el => {
-              el.classList.remove('selected');
-            });
             game.evaluateSet(selectedCards);
           }
         }
@@ -173,6 +164,8 @@ class Game {
     }
 
     console.log(selectedCards);
+    console.log(recycleCards);
+    console.log(currentBoard);
   }
 
   addPoints() {
@@ -192,27 +185,7 @@ class Game {
 
     nArray.forEach( (card, i) => {
       const gridItem = document.getElementById(`card-${i+1}`);
-
-      const currentCardclass = (card.value());
-      const cardElement = document.createElement('div');
-      const cardElementChildContainer = document.createElement('div');
-
-      cardElement.setAttribute('data-combo-id', `combo-${i}`);
-      cardElement.setAttribute('data-shape', `${card.shape}`);
-      cardElement.setAttribute('data-color', `${card.color}`);
-      cardElement.setAttribute('data-pattern', `${card.pattern}`);
-      cardElement.setAttribute('data-number', `${card.number}`);
-      cardElement.className += ('card');
-      cardElement.addEventListener('click', this.selectCard);
-      cardElementChildContainer.className += "shape-container";
-      cardElement.appendChild(cardElementChildContainer);
-
-      for (let j = 0; j < card.number; j++) {
-        const cardElementChild = document.createElement('div');
-        cardElementChild.className += (`shape ${currentCardclass}`);
-        cardElementChildContainer.appendChild(cardElementChild);
-      }
-
+      const cardElement = this.createNewCard(card, i);
       gridItem.appendChild(cardElement);
     });
   }

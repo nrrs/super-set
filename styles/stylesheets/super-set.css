@@ -43,20 +43,21 @@ header #timer {
   border: 1px solid #e6e6e6;
   border-radius: 3px;
 }
-/* line 33, ../sass/_board.scss */
-header #alerts {
+
+/* line 34, ../sass/_board.scss */
+#alerts {
   background-color: #fff;
   font-size: 25px;
   padding: 10px;
   border-radius: 3px;
   border: 1px solid #e6e6e6;
 }
-/* line 39, ../sass/_board.scss */
-header #alerts.success {
+/* line 40, ../sass/_board.scss */
+#alerts.success {
   background-color: #28B78D;
 }
-/* line 42, ../sass/_board.scss */
-header #alerts.error {
+/* line 43, ../sass/_board.scss */
+#alerts.error {
   background-color: #c43232;
 }
 
@@ -225,4 +226,54 @@ header #alerts.error {
   .card .shape-container .shape.grey:before {
     border-color: #FF974F;
   }
+}
+@keyframes bounceInDown {
+  from, 60%, 75%, 90%, to {
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -3000px, 0);
+  }
+  60% {
+    opacity: 1;
+    transform: translate3d(0, 25px, 0);
+  }
+  75% {
+    transform: translate3d(0, -10px, 0);
+  }
+  90% {
+    transform: translate3d(0, 5px, 0);
+  }
+  to {
+    transform: none;
+  }
+}
+/* line 29, ../sass/_animations.scss */
+.bounceInDown {
+  animation-name: bounceInDown;
+}
+
+/* line 33, ../sass/_animations.scss */
+.animated {
+  animation-duration: 0.70s;
+  animation-fill-mode: both;
+}
+
+@keyframes bounceOutUp {
+  20% {
+    transform: translate3d(0, -10px, 0);
+  }
+  40%, 45% {
+    opacity: 1;
+    transform: translate3d(0, 20px, 0);
+  }
+  to {
+    opacity: 0;
+    transform: translate3d(0, -2000px, 0);
+  }
+}
+/* line 55, ../sass/_animations.scss */
+.bounceOutUp {
+  animation-name: bounceOutUp;
 }

@@ -30,18 +30,18 @@ header {
     border: 1px solid #e6e6e6;
     border-radius: 3px;
   }
-  #alerts {
-    background-color: #fff;
-    font-size: $var*2.5;
-    padding: $var;
-    border-radius: 3px;
-    border: 1px solid #e6e6e6;
-    &.success {
-      background-color: $green;
-    }
-    &.error {
-      background-color: $red;
-    }
+}
+#alerts {
+  background-color: #fff;
+  font-size: $var*2.5;
+  padding: $var;
+  border-radius: 3px;
+  border: 1px solid #e6e6e6;
+  &.success {
+    background-color: $green;
+  }
+  &.error {
+    background-color: $red;
   }
 }
 

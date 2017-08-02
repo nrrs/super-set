@@ -52,13 +52,13 @@ class Game {
       arr.forEach(el => {
         el.classList.remove('selected');
       });
-    }, 1250);
+    }, 1000);
     setTimeout(() => {
       body.classList.add('bounceOutUp');
-    }, 1250);
+    }, 1000);
     setTimeout(() => {
       body.classList.remove(type);
-    }, 1500);
+    }, 1750);
   }
 
   createNewCard(card, i) {

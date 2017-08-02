@@ -9,6 +9,7 @@ body {
 body {
   position: absolute;
   height: 100%;
+  width: 100%;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -17,23 +18,25 @@ body {
   font-size: 20px;
 }
 
-/* line 12, ../sass/_board.scss */
+/* line 13, ../sass/_board.scss */
 header {
   padding: 5px 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
+  box-sizing: border-box;
 }
-/* line 17, ../sass/_board.scss */
+/* line 20, ../sass/_board.scss */
 header .points-box,
 header .timer-box {
   max-width: 80px;
 }
-/* line 21, ../sass/_board.scss */
+/* line 24, ../sass/_board.scss */
 header .count-container {
   display: flex;
 }
-/* line 24, ../sass/_board.scss */
+/* line 27, ../sass/_board.scss */
 header #points,
 header #timer {
   font-size: 50px;
@@ -44,7 +47,7 @@ header #timer {
   border-radius: 3px;
 }
 
-/* line 34, ../sass/_board.scss */
+/* line 37, ../sass/_board.scss */
 #alerts {
   background-color: #fff;
   font-size: 25px;
@@ -52,16 +55,16 @@ header #timer {
   border-radius: 3px;
   border: 1px solid #e6e6e6;
 }
-/* line 40, ../sass/_board.scss */
+/* line 43, ../sass/_board.scss */
 #alerts.success {
   background-color: #28B78D;
 }
-/* line 43, ../sass/_board.scss */
+/* line 46, ../sass/_board.scss */
 #alerts.error {
   background-color: #c43232;
 }
 
-/* line 48, ../sass/_board.scss */
+/* line 51, ../sass/_board.scss */
 #board {
   display: flex;
   flex-wrap: wrap;
@@ -70,24 +73,24 @@ header #timer {
   box-sizing: border-box;
 }
 
-/* line 56, ../sass/_board.scss */
+/* line 59, ../sass/_board.scss */
 .modal {
   display: none;
 }
 
-/* line 60, ../sass/_board.scss */
+/* line 63, ../sass/_board.scss */
 #super-set {
   background-color: #fafafa;
   transition: all 0.5s ease;
 }
 
-/* line 65, ../sass/_board.scss */
+/* line 68, ../sass/_board.scss */
 #super-set.error {
   background-color: #c43232;
   transition: all 0.5s ease;
 }
 
-/* line 73, ../sass/_board.scss */
+/* line 76, ../sass/_board.scss */
 #super-set.success {
   background-color: #28B78D;
   transition: all 0.5s ease;

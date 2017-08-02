@@ -1,3 +1,8 @@
+.animated {
+  animation-duration: 0.70s;
+  animation-fill-mode: both;
+}
+
 @keyframes bounceInDown {
   from, 60%, 75%, 90%, to {
     animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
@@ -30,12 +35,6 @@
   animation-name: bounceInDown;
 }
 
-.animated {
-  animation-duration: 0.70s;
-  animation-fill-mode: both;
-}
-
-
 @keyframes bounceOutUp {
   20% {
     transform: translate3d(0, -10px, 0);
@@ -54,4 +53,15 @@
 
 .bounceOutUp {
   animation-name: bounceOutUp;
+}
+
+@keyframes shake {
+ 0%   { transform: translateX(0); }
+ 25% {  transform: translateX(-5px); }
+ 50% {  transform: translateX(0); }
+ 75% {  transform: translateX(5px); }
+}
+
+.shake {
+ animation: shake .1s 5;
 }

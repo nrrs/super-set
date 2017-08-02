@@ -182,15 +182,15 @@ header #timer {
   background: repeating-linear-gradient(to bottom, #fafafa, #fafafa 3.33333px, #149ECC 3.33333px, #149ECC 6.66667px);
 }
 /* line 91, ../sass/_card.scss */
-.card .shape-container .shape.grey:before {
+.card .shape-container .shape.orange:before {
   border-color: #FF974F;
 }
 /* line 94, ../sass/_card.scss */
-.card .shape-container .shape.grey.solid:before {
+.card .shape-container .shape.orange.solid:before {
   background: #FF974F;
 }
 /* line 97, ../sass/_card.scss */
-.card .shape-container .shape.grey.striped:before {
+.card .shape-container .shape.orange.striped:before {
   background: repeating-linear-gradient(to bottom, #fafafa, #fafafa 3.33333px, #FF974F 3.33333px, #FF974F 6.66667px);
 }
 /* line 107, ../sass/_card.scss */
@@ -223,10 +223,16 @@ header #timer {
     border-color: #149ECC;
   }
   /* line 134, ../sass/_card.scss */
-  .card .shape-container .shape.grey:before {
+  .card .shape-container .shape.orange:before {
     border-color: #FF974F;
   }
 }
+/* line 1, ../sass/_animations.scss */
+.animated {
+  animation-duration: 0.70s;
+  animation-fill-mode: both;
+}
+
 @keyframes bounceInDown {
   from, 60%, 75%, 90%, to {
     animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -249,15 +255,9 @@ header #timer {
     transform: none;
   }
 }
-/* line 29, ../sass/_animations.scss */
+/* line 34, ../sass/_animations.scss */
 .bounceInDown {
   animation-name: bounceInDown;
-}
-
-/* line 33, ../sass/_animations.scss */
-.animated {
-  animation-duration: 0.70s;
-  animation-fill-mode: both;
 }
 
 @keyframes bounceOutUp {
@@ -273,7 +273,26 @@ header #timer {
     transform: translate3d(0, -2000px, 0);
   }
 }
-/* line 55, ../sass/_animations.scss */
+/* line 54, ../sass/_animations.scss */
 .bounceOutUp {
   animation-name: bounceOutUp;
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(0);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+}
+/* line 65, ../sass/_animations.scss */
+.shake {
+  animation: shake .1s 5;
 }

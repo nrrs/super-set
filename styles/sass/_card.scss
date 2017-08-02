@@ -88,19 +88,19 @@
           $blue $var/1.5
         );
       }
-      &.grey:before {
-        border-color: $grey;
+      &.orange:before {
+        border-color: $orange;
       }
-      &.grey.solid:before {
-        background: $grey;
+      &.orange.solid:before {
+        background: $orange;
       }
-      &.grey.striped:before {
+      &.orange.striped:before {
         background: repeating-linear-gradient(
           to bottom,
           $bg,
           $bg $var/3,
-          $grey $var/3,
-          $grey $var/1.5
+          $orange $var/3,
+          $orange $var/1.5
         );
       }
     }
@@ -131,8 +131,8 @@
     &.blue:before {
       border-color: $blue;
     }
-    &.grey:before {
-      border-color: $grey;
+    &.orange:before {
+      border-color: $orange;
     }
   }
 }

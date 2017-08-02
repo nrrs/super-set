@@ -1,9 +1,7 @@
 // import Card from './card';
 let selectedCards = [];
-let recycleCards = [];
 let currentBoard = [];
-
-window.recycleCards =  recycleCards;
+let setScore = 0;
 
 class Game {
 
@@ -20,22 +18,34 @@ class Game {
         game.numbersSet(cards) ) {
       this.flash('success', 'Valid Set!');
       game.addPoints();
-
-      setTimeout(() => {
+      setTimeout(() => { // Update the board after 1.5s of animations
         cards.forEach ( (card, i) => {
-          const bye = document.querySelector(`[data-combo-id='${cards[i].comboId}']`);
-          const drawn = game.deck.shift();
-          const newCard = game.createNewCard(drawn, i);
-          bye.parentNode.replaceChild(newCard, bye);
+          const bye = document.querySelector(`[data-id='${cards[i].id}']`);
+          const currId = cards[i].id;
+
+          currentBoard.forEach( boardElement => {
+            if (boardElement.id === currId) {
+              const remove = currentBoard.indexOf(boardElement);
+              currentBoard.splice(remove, 1);
+            }
+          });
+
+          if (setScore < 24) { // If set count < 24, keep filling the board.
+            const drawn = game.deck.shift();
+            currentBoard.push(drawn);
+
+            const newCard = game.createNewCard(drawn, i);
+            bye.parentNode.replaceChild(newCard, bye);
+          } else {  // Deck is empty. Clean up the board.
+            bye.parentNode.removeChild(bye);
+          }
+
         });
       }, 1500);
-
     } else {
       this.flash('error', 'Not a valid set!');
     }
-
     selectedCards = [];
-
   }
 
   flash(type, message) {
@@ -46,26 +56,24 @@ class Game {
     body.classList.add('bounceInDown');
     body.innerHTML = `${message}`;
 
-    setTimeout(() => {
-      body.classList.remove('bounceInDown');
+    setTimeout(() => { // allot time for alert animations
       const arr = document.querySelectorAll('.selected');
+      body.classList.remove('bounceInDown');
       arr.forEach(el => {
         el.classList.remove('selected');
       });
     }, 1000);
-    setTimeout(() => {
-      body.classList.add('bounceOutUp');
-    }, 1000);
-    setTimeout(() => {
-      body.classList.remove(type);
-    }, 1750);
+    setTimeout(() => { body.classList.add('bounceOutUp'); }, 1000);
+    setTimeout(() => { body.classList.remove(type); }, 1750);
   }
 
   createNewCard(card, i) {
     const cardElement = document.createElement('div');
     const cardElementChildContainer = document.createElement('div');
 
-    cardElement.setAttribute('data-combo-id', `combo-${i}`);
+    cardElement.setAttribute(
+      'data-id', `${card.shape}-${card.color}-${card.pattern}-${card.number}`
+    );
     cardElement.setAttribute('data-shape', `${card.shape}`);
     cardElement.setAttribute('data-color', `${card.color}`);
     cardElement.setAttribute('data-pattern', `${card.pattern}`);
@@ -77,7 +85,9 @@ class Game {
 
     for (let j = 0; j < card.number; j++) {
       const cardElementChild = document.createElement('div');
-      cardElementChild.className += (`shape ${card.shape} ${card.color} ${card.pattern} ${card.number}`);
+      cardElementChild.className += (
+        `shape ${card.shape} ${card.color} ${card.pattern} ${card.number}`
+      );
       cardElementChildContainer.appendChild(cardElementChild);
     }
 
@@ -91,10 +101,8 @@ class Game {
        ((cards[0].shape !== cards[1].shape) &&
         (cards[1].shape !== cards[2].shape) &&
         (cards[0].shape !== cards[2].shape))) {
-      console.log('shape set');
       return true;
     } else {
-      console.log('not a shape set');
       return false;
     }
   }
@@ -106,10 +114,8 @@ class Game {
        ((cards[0].color !== cards[1].color) &&
         (cards[1].color !== cards[2].color) &&
         (cards[0].color !== cards[2].color))) {
-      console.log('colors set');
       return true;
     } else {
-      console.log('not a colors set');
       return false;
     }
   }
@@ -121,10 +127,8 @@ class Game {
        ((cards[0].pattern !== cards[1].pattern) &&
         (cards[1].pattern !== cards[2].pattern) &&
         (cards[0].pattern !== cards[2].pattern))) {
-      console.log('patterns set');
       return true;
     } else {
-      console.log('not a patterns set');
       return false;
     }
   }
@@ -136,57 +140,45 @@ class Game {
        ((cards[0].number !== cards[1].number) &&
         (cards[1].number !== cards[2].number) &&
         (cards[0].number !== cards[2].number))) {
-      console.log('numbers set');
       return true;
     } else {
-      console.log('not a numbers set');
       return false;
     }
   }
 
   selectCard(e) {
     e.preventDefault();
-
     if (e.currentTarget.classList.contains('selected')) {
-      game.showAlert('Already Selected, choose another!');
+      game.flash('error', 'Already selected! Choose another!');
     } else {
       e.currentTarget.classList.toggle("selected");
       setTimeout( () => {
         if (selectedCards.length !== 3) {
           const card = Object.assign({}, this.dataset);
           selectedCards.push(card);
-
-          if (selectedCards.length === 3) {
-            game.evaluateSet(selectedCards);
-          }
+          if (selectedCards.length === 3) { game.evaluateSet(selectedCards); }
         }
       }, 200);
     }
-
-    console.log(selectedCards);
-    console.log(recycleCards);
-    console.log(currentBoard);
   }
 
   addPoints() {
-    const points = document.getElementById('points').value;
-    document.getElementById('points').value = parseInt(points) + 1;
+    setScore += 1;
+    document.getElementById('points').value = setScore;
   }
 
   deal(n, deck) {
     const nArray = [];
 
     for (let i = 0; i < n; i++) {
-      const tempItem = deck.pop();
-      recycleCards.push(tempItem);
-      currentBoard.concat(recycleCards);
-      nArray.push(tempItem);
+      const card = deck.pop();
+      currentBoard.push(card);
+      nArray.push(card);
     }
 
     nArray.forEach( (card, i) => {
-      const gridItem = document.getElementById(`card-${i+1}`);
       const cardElement = this.createNewCard(card, i);
-      gridItem.appendChild(cardElement);
+      document.getElementById(`card-${i+1}`).appendChild(cardElement);
     });
   }
 }
@@ -194,7 +186,7 @@ class Game {
 class Deck {
   constructor() {
     const shapes = ['circle', 'square', 'diamond'];
-    const colors = ['green', 'blue', 'grey'];
+    const colors = ['green', 'blue', 'orange'];
     const patterns = ['solid', 'stroke', 'striped'];
     const numbers = [1, 2, 3];
 
@@ -232,19 +224,12 @@ class Deck {
 
 class Card {
   constructor(shape, color, pattern, number) {
+    this.id = `${shape}-${color}-${pattern}-${number}`;
     this.shape = shape;
     this.color = color;
     this.pattern = pattern;
     this.number = number;
   }
-
-  value() {
-    return (
-      `${this.shape} ${this.color} ${this.pattern} ${this.number}`
-    );
-  }
 }
-
-
 
 const game = new Game();

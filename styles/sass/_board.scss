@@ -23,15 +23,31 @@ header {
   }
   .count-container {
     display: flex;
+    align-items: flex-end;
+    &>div {
+      width: 100%;
+      text-align: center;
+      margin-left: $var;
+    }
   }
+  #deal-button,
   #points,
   #timer {
-    font-size: $var*5;
+    // font-size: $var*5;
+    background: #fff;
     width: 100%;
     text-align: center;
     font-weight: bold;
     border: 1px solid #e6e6e6;
     border-radius: 3px;
+    line-height: 2em;
+    padding: $var/2;
+    box-sizing: border-box;
+    outline: none;
+  }
+  #deal-button:hover {
+    background: $green;
+    color: #fff;
   }
 }
 #alerts {

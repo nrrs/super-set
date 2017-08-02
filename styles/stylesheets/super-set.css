@@ -5,6 +5,11 @@ body {
   padding: 10px;
 }
 
+/* line 6, ../sass/_base.scss */
+h1 {
+  margin: 0px;
+}
+
 /* line 1, ../sass/_board.scss */
 body {
   position: absolute;
@@ -35,19 +40,36 @@ header .timer-box {
 /* line 24, ../sass/_board.scss */
 header .count-container {
   display: flex;
+  align-items: flex-end;
 }
 /* line 27, ../sass/_board.scss */
+header .count-container > div {
+  width: 100%;
+  text-align: center;
+  margin-left: 10px;
+}
+/* line 33, ../sass/_board.scss */
+header #deal-button,
 header #points,
 header #timer {
-  font-size: 50px;
+  background: #fff;
   width: 100%;
   text-align: center;
   font-weight: bold;
   border: 1px solid #e6e6e6;
   border-radius: 3px;
+  line-height: 2em;
+  padding: 5px;
+  box-sizing: border-box;
+  outline: none;
+}
+/* line 48, ../sass/_board.scss */
+header #deal-button:hover {
+  background: #28B78D;
+  color: #fff;
 }
 
-/* line 37, ../sass/_board.scss */
+/* line 53, ../sass/_board.scss */
 #alerts {
   background-color: #fff;
   font-size: 25px;
@@ -55,16 +77,16 @@ header #timer {
   border-radius: 3px;
   border: 1px solid #e6e6e6;
 }
-/* line 43, ../sass/_board.scss */
+/* line 59, ../sass/_board.scss */
 #alerts.success {
   background-color: #28B78D;
 }
-/* line 46, ../sass/_board.scss */
+/* line 62, ../sass/_board.scss */
 #alerts.error {
-  background-color: #c43232;
+  background-color: #d992a6;
 }
 
-/* line 51, ../sass/_board.scss */
+/* line 67, ../sass/_board.scss */
 #board {
   display: flex;
   flex-wrap: wrap;
@@ -73,7 +95,7 @@ header #timer {
   box-sizing: border-box;
 }
 
-/* line 59, ../sass/_board.scss */
+/* line 75, ../sass/_board.scss */
 #super-set {
   background-color: #fafafa;
   transition: all 0.5s ease;
@@ -281,4 +303,18 @@ header #timer {
 /* line 65, ../sass/_animations.scss */
 .shake {
   animation: shake .1s 5;
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+  50% {
+    opacity: 1;
+  }
+}
+/* line 81, ../sass/_animations.scss */
+.zoomIn {
+  animation-name: zoomIn;
 }

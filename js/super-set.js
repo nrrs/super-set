@@ -149,9 +149,12 @@ class Game {
   selectCard(e) {
     e.preventDefault();
     if (e.currentTarget.classList.contains('selected')) {
-      game.flash('error', 'Already selected! Choose another!');
+      selectedCards.forEach( (el, i) => {
+        if (el.id === this.dataset.id) { selectedCards.splice(i, 1); }
+      });
+      e.currentTarget.classList.remove('selected');
     } else {
-      e.currentTarget.classList.toggle("selected");
+      e.currentTarget.classList.add("selected");
       setTimeout( () => {
         if (selectedCards.length !== 3) {
           const card = Object.assign({}, this.dataset);

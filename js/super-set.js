@@ -38,7 +38,7 @@ class Game {
         this.colorsSet(cards) &&
         this.patternsSet(cards) &&
         this.numbersSet(cards) ) {
-      this.flash('success', 'Valid Set!');
+      this.flash('success', 'Valid set!');
       this.addPoints();
       setTimeout(() => { // Update the board after 1.5s of animations
         cards.forEach ( (card, i) => {
@@ -61,6 +61,10 @@ class Game {
         });
       }, 1500);
     } else {
+      console.log(document.querySelectorAll('.selected'));
+      document.querySelectorAll('.selected').forEach( el => {
+        el.classList.add('shake');
+      });
       this.flash('error', 'Not a valid set!');
     }
     selectedCards = [];
@@ -78,6 +82,7 @@ class Game {
       const arr = document.querySelectorAll('.selected');
       body.classList.remove('bounceInDown');
       arr.forEach(el => {
+        el.classList.remove('shake');
         el.classList.remove('selected');
       });
     }, 1000);

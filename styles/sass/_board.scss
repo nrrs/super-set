@@ -56,27 +56,7 @@ header {
   box-sizing: border-box;
 }
 
-.modal {
-  display: none;
-}
-
 #super-set {
   background-color: #fafafa;
   transition: all 0.5s ease;
-}
-
-#super-set.error {
-  background-color: $red;
-  transition: all 0.5s ease;
-  .card {
-    // background-color: #e1e1e1;
-  }
-}
-
-#super-set.success {
-  background-color: $green;
-  transition: all 0.5s ease;
-  .card {
-    // background-color: #e1e1e1;
-  }
 }

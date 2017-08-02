@@ -1,147 +1,138 @@
+.card-container {
+  flex: 1 0 20%;
+  padding: $var;
+}
 .card {
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid red;
-  flex-basis: 30%;
-  box-sizing: border-box;
-  margin-bottom: $var*2;
-  min-height: $var*10;
+  height: 100%;
+  // flex-basis: 27%;
+  // margin-bottom: $var*2;
   border: 1px solid #e6e6e6;
   border-radius: 3px;
   background-color: $card-bg;
+  padding: $var;
+  box-sizing: border-box;
+  &:hover {
+    box-shadow: 0px 0px 13px -5px #262626;
+  }
+  &.selected {
+    box-shadow: 0px 0px 16px -3px #262626;
+    border: 2px solid #3399cc;
+  }
+}
+
+@media (max-width: 560px) {
+  .card {
+    flex-basis: 25%;
+  }
+}
+
+@media (max-width: 420px) {
+  .card {
+    flex-basis: 20%;
+  }
 }
 
 
 // shapes
 .card {
-  &>div {
+  .shape-container {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
-
-    &:before {
-      content: ""
+    width: 100%;
+    flex-wrap: wrap-reverse;
+    .shape {
+      display: flex;
+      justify-content: space-around;
+      margin: $var;
+      &:before {
+        content: ""
+      }
+      &.circle:before,
+      &.square:before,
+      &.diamond:before {
+        height: $var*3;
+        width: $var*3;
+        border: $var/1.5 solid;
+      }
+      &.green:before {
+        border-color: $green;
+      }
+      &.green.solid:before {
+        background: $green;
+      }
+      &.green.striped:before {
+        background: repeating-linear-gradient(
+          to bottom,
+          $bg,
+          $bg $var/3,
+          $green $var/3,
+          $green $var/1.5
+        );
+      }
+      &.blue:before {
+        border-color: $blue;
+      }
+      &.blue.solid:before {
+        background: $blue;
+      }
+      &.blue.striped:before {
+        background: repeating-linear-gradient(
+          to bottom,
+          $bg,
+          $bg $var/3,
+          $blue $var/3,
+          $blue $var/1.5
+        );
+      }
+      &.grey:before {
+        border-color: $grey;
+      }
+      &.grey.solid:before {
+        background: $grey;
+      }
+      &.grey.striped:before {
+        background: repeating-linear-gradient(
+          to bottom,
+          $bg,
+          $bg $var/3,
+          $grey $var/3,
+          $grey $var/1.5
+        );
+      }
     }
+    .circle:before{
+      border-radius: 100%;
+    }
+    .diamond:before{
+      width: $var*2.5;
+      transform: rotate(45deg);
+    }
+  }
+}
 
+
+@media (max-width: 690px) {
+  .card .shape-container .shape {
+    margin: $var690;
     &.circle:before,
     &.square:before,
     &.diamond:before {
-      height: $var*3;
-      width: $var*3;
-      border: 10px solid;
+      height: $var690*3;
+      width: $var690*3;
+      border: $var690 solid;
     }
-
     &.green:before {
       border-color: $green;
-    }
-    &.green.solid:before {
-      background: $green;
-    }
-    &.green.striped:before {
-      background: repeating-linear-gradient(
-        to bottom,
-        $bg,
-        $bg 5px,
-        $green 5px,
-        $green 10px
-      );
     }
     &.blue:before {
       border-color: $blue;
     }
-    &.blue.solid:before {
-      background: $blue;
-    }
-    &.blue.striped:before {
-      background: repeating-linear-gradient(
-        to bottom,
-        $bg,
-        $bg 5px,
-        $blue 5px,
-        $blue 10px
-      );
-    }
     &.grey:before {
       border-color: $grey;
     }
-    &.grey.solid:before {
-      background: $grey;
-    }
-    &.grey.striped:before {
-      background: repeating-linear-gradient(
-        to bottom,
-        $bg,
-        $bg 5px,
-        $grey 5px,
-        $grey 10px
-      );
-    }
   }
-  .circle:before{
-    border-radius: 100%;
-  }
-  .diamond:before{
-    width: $var*2.5;
-    transform: rotate(45deg);
-  }
-
-  // .triangle {
-  //   &:before  {
-  //     border-left: $var*3 solid transparent !important;
-  //     border-right: $var*3 solid transparent !important;
-  //     border-bottom: $var*4 solid;
-  //     height: 0 !important;
-  //     width: 0 !important;
-  //     background: transparent !important;
-  //   }
-  //   &.stroke:after {
-  //     content: "";
-  //     position: absolute;
-  //     margin-top: 3px;
-  //     border-left: 26.3px solid transparent;
-  //     border-right: 26.3px solid transparent;
-  //     border-bottom: 35px solid $bg;
-  //     height: 0;
-  //     width: 0;
-  //     background: transparent;
-  //   }
-  //   &.striped:after {
-  //     content: "";
-  //     position: absolute;
-  //     margin-top: 3px;
-  //     border-left: 26.3px solid transparent;
-  //     border-right: 26.3px solid transparent;
-  //     border-bottom: 35px solid $bg;
-  //     height: 0;
-  //     width: 0;
-  //     background: blue;
-  //     // background: repeating-linear-gradient(
-  //     //   to bottom,
-  //     //   $bg,
-  //     //   $bg 5px,
-  //     //   $grey 5px,
-  //     //   $grey 10px
-  //     // );
-  //     &::after {
-  //       content: "";
-  //       position: absolute;
-  //       margin-top: 3px;
-  //       border-left: 26.3px solid transparent;
-  //       border-right: 26.3px solid transparent;
-  //       border-bottom: 35px solid $bg;
-  //       height: 0;
-  //       width: 0;
-  //       background: red;
-  //       // background: repeating-linear-gradient(
-  //       //   to bottom,
-  //       //   $bg,
-  //       //   $bg 5px,
-  //       //   $grey 5px,
-  //       //   $grey 10px
-  //       // );
-  //     }
-  //   }
-  // }
-
 }

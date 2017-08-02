@@ -1,9 +1,14 @@
 // sizing
-$var: 15px;
+$var: 10px;
+$var690: 8px;
+
+@media (max-width: 690px) {
+}
 
 // color
 $bg: #fafafa;
 $card-bg: #fff;
-$green: #28B78D;
-$blue: #243743;
-$grey: #8A949B;
+$green: #28B78D; //#00FFB4
+$blue: #149ECC; // #243743 #3f6075
+$grey: #FF974F; // #8A949B /adb4b9
+$red: #c43232; // #f0d4dc;

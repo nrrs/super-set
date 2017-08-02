@@ -4,7 +4,9 @@
 
 According to [Wikipedia](https://en.wikipedia.org/wiki/Set_(game))... "Set is a real-time card game designed by Marsha Falco in 1974 and published by Set Enterprises in 1991. The deck consists of 81 cards varying in four features: number (one, two, or three); symbol (diamond, squiggle, oval); shading (solid, striped, or open); and color (red, green, or purple).[1] Each possible combination of features (e.g., a card with three striped green diamonds) appears precisely once in the deck."
 
-It's essentially a patterns recognition game. It can be played solo (timed) or against others (highest set count wins).
+It's essentially a patterns recognition game. Your goal is to identify a set of 3 cards that share common and different characteristics. Once I am able to render the cards, a demo image will be provided.
+
+It can be played solo (timed) or against others (highest set count wins).
 
 ### Functionality & MVP  
 
@@ -28,8 +30,6 @@ The cards will have hover effects to show the user it is active and selected car
 
 
 ### Architecture and Technologies
-
-**NB**: one of the main things you should be researching and deciding upon while you write this proposal is what technologies you plan to use.  Identify and create a plan of attack for the major technical challenges in your project.  It's okay if you don't have all the details of implementation fleshed out, but you should have a solid roadmap by Monday morning.
 
 This project will be implemented with the following technologies:
 

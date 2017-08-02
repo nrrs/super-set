@@ -1,5 +1,79 @@
+body {
+  position: absolute;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-family: 'Poiret One', sans-serif;
+  font-size: $var*2;
+}
+
+header {
+  padding: $var/2 $var;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .points-box,
+  .timer-box {
+    max-width: $var*8;
+  }
+  .count-container {
+    display: flex;
+  }
+  #points,
+  #timer {
+    font-size: $var*5;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+  }
+  #alerts {
+    background-color: #fff;
+    font-size: $var*2.5;
+    padding: $var;
+    border-radius: 3px;
+    border: 1px solid #e6e6e6;
+    &.success {
+      background-color: $green;
+    }
+    &.error {
+      background-color: $red;
+    }
+  }
+}
+
 #board {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.modal {
+  display: none;
+}
+
+#super-set {
+  background-color: #fafafa;
+  transition: all 0.5s ease;
+}
+
+#super-set.error {
+  background-color: $red;
+  transition: all 0.5s ease;
+  .card {
+    // background-color: #e1e1e1;
+  }
+}
+
+#super-set.success {
+  background-color: $green;
+  transition: all 0.5s ease;
+  .card {
+    // background-color: #e1e1e1;
+  }
 }

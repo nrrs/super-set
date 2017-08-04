@@ -40,14 +40,14 @@
   }
 }
 #instructions,
-#examples {
+#examples,
+#controls {
   flex: 1;
   padding: $var;
   p {
     margin-top: 0px;
   }
 }
-
 
 @media (max-width: 660px) {
   .step {

@@ -12,10 +12,9 @@ body {
   padding: 10px;
   font-family: 'Quicksand', sans-serif;
   font-size: 20px;
-  font-weight: light;
 }
 
-/* line 16, ../sass/_base.scss */
+/* line 15, ../sass/_base.scss */
 h1 {
   margin: 0px;
 }
@@ -75,13 +74,15 @@ h1 {
 
 /* line 42, ../sass/_splash.scss */
 #instructions,
-#examples {
+#examples,
+#controls {
   flex: 1;
   padding: 10px;
 }
-/* line 46, ../sass/_splash.scss */
+/* line 47, ../sass/_splash.scss */
 #instructions p,
-#examples p {
+#examples p,
+#controls p {
   margin-top: 0px;
 }
 

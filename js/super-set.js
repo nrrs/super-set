@@ -1,4 +1,3 @@
-// import Card from './card';
 let selectedCards = [];
 let currentBoard = [];
 let setScore = 0;

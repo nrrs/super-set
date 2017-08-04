@@ -110,23 +110,24 @@ class Game {
   }
 
   flash(type, message) {
-    const body = document.getElementById('alerts');
+    const alert = document.getElementById('alerts');
 
-    body.classList.remove('bounceOutUp');
-    body.classList.add(type);
-    body.classList.add('bounceInDown');
-    body.innerHTML = `${message}`;
+    alert.className = '';
+    alert.classList.remove('bounceOutUp');
+    alert.classList.add(type);
+    alert.classList.add('bounceInDown');
+    alert.innerHTML = `${message}`;
 
     setTimeout(() => { // allot time for alert animations
       const arr = document.querySelectorAll('.selected');
-      body.classList.remove('bounceInDown');
+      alert.classList.remove('bounceInDown');
       arr.forEach(el => {
         el.classList.remove('shake');
         el.classList.remove('selected');
       });
     }, 1000);
-    setTimeout(() => { body.classList.add('bounceOutUp'); }, 1000);
-    setTimeout(() => { body.classList.remove(type); }, 1750);
+    setTimeout(() => { alert.classList.add('bounceOutUp'); }, 1000);
+    setTimeout(() => { alert.classList.remove(type); }, 1750);
   }
 
   createNewCard(card, i) {

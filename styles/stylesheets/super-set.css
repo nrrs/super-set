@@ -211,30 +211,31 @@ header .count-container > div {
   background-color: #fff;
   padding: 10px;
   box-sizing: border-box;
+  cursor: pointer;
 }
-/* line 17, ../sass/_card.scss */
+/* line 16, ../sass/_card.scss */
 .card:hover {
   box-shadow: 0px 0px 13px -5px #262626;
 }
-/* line 20, ../sass/_card.scss */
+/* line 19, ../sass/_card.scss */
 .card.selected {
   box-shadow: 0px 0px 16px -3px #262626;
   border: 2px solid #3399cc;
 }
 
 @media (max-width: 560px) {
-  /* line 27, ../sass/_card.scss */
+  /* line 26, ../sass/_card.scss */
   .card {
     flex-basis: 25%;
   }
 }
 @media (max-width: 420px) {
-  /* line 33, ../sass/_card.scss */
+  /* line 32, ../sass/_card.scss */
   .card {
     flex-basis: 20%;
   }
 }
-/* line 41, ../sass/_card.scss */
+/* line 40, ../sass/_card.scss */
 .card .shape-container {
   display: flex;
   justify-content: space-evenly;
@@ -242,88 +243,88 @@ header .count-container > div {
   width: 100%;
   flex-wrap: wrap-reverse;
 }
-/* line 47, ../sass/_card.scss */
+/* line 46, ../sass/_card.scss */
 .card .shape-container .shape {
   display: flex;
   justify-content: space-around;
   margin: 10px;
 }
-/* line 51, ../sass/_card.scss */
+/* line 50, ../sass/_card.scss */
 .card .shape-container .shape:before {
   content: "";
 }
-/* line 54, ../sass/_card.scss */
+/* line 53, ../sass/_card.scss */
 .card .shape-container .shape.circle:before, .card .shape-container .shape.square:before, .card .shape-container .shape.diamond:before {
   height: 30px;
   width: 30px;
   border: 6.66667px solid;
 }
-/* line 61, ../sass/_card.scss */
+/* line 60, ../sass/_card.scss */
 .card .shape-container .shape.green:before {
   border-color: #28B78D;
 }
-/* line 64, ../sass/_card.scss */
+/* line 63, ../sass/_card.scss */
 .card .shape-container .shape.green.solid:before {
   background: #28B78D;
 }
-/* line 67, ../sass/_card.scss */
+/* line 66, ../sass/_card.scss */
 .card .shape-container .shape.green.striped:before {
   background: repeating-linear-gradient(to bottom, #fafafa, #fafafa 3.33333px, #28B78D 3.33333px, #28B78D 6.66667px);
 }
-/* line 76, ../sass/_card.scss */
+/* line 75, ../sass/_card.scss */
 .card .shape-container .shape.blue:before {
   border-color: #149ECC;
 }
-/* line 79, ../sass/_card.scss */
+/* line 78, ../sass/_card.scss */
 .card .shape-container .shape.blue.solid:before {
   background: #149ECC;
 }
-/* line 82, ../sass/_card.scss */
+/* line 81, ../sass/_card.scss */
 .card .shape-container .shape.blue.striped:before {
   background: repeating-linear-gradient(to bottom, #fafafa, #fafafa 3.33333px, #149ECC 3.33333px, #149ECC 6.66667px);
 }
-/* line 91, ../sass/_card.scss */
+/* line 90, ../sass/_card.scss */
 .card .shape-container .shape.orange:before {
   border-color: #FF974F;
 }
-/* line 94, ../sass/_card.scss */
+/* line 93, ../sass/_card.scss */
 .card .shape-container .shape.orange.solid:before {
   background: #FF974F;
 }
-/* line 97, ../sass/_card.scss */
+/* line 96, ../sass/_card.scss */
 .card .shape-container .shape.orange.striped:before {
   background: repeating-linear-gradient(to bottom, #fafafa, #fafafa 3.33333px, #FF974F 3.33333px, #FF974F 6.66667px);
 }
-/* line 107, ../sass/_card.scss */
+/* line 106, ../sass/_card.scss */
 .card .shape-container .circle:before {
   border-radius: 100%;
 }
-/* line 110, ../sass/_card.scss */
+/* line 109, ../sass/_card.scss */
 .card .shape-container .diamond:before {
   width: 25px;
   transform: rotate(45deg);
 }
 
 @media (max-width: 690px) {
-  /* line 119, ../sass/_card.scss */
+  /* line 118, ../sass/_card.scss */
   .card .shape-container .shape {
     margin: 8px;
   }
-  /* line 121, ../sass/_card.scss */
+  /* line 120, ../sass/_card.scss */
   .card .shape-container .shape.circle:before, .card .shape-container .shape.square:before, .card .shape-container .shape.diamond:before {
     height: 24px;
     width: 24px;
     border: 8px solid;
   }
-  /* line 128, ../sass/_card.scss */
+  /* line 127, ../sass/_card.scss */
   .card .shape-container .shape.green:before {
     border-color: #28B78D;
   }
-  /* line 131, ../sass/_card.scss */
+  /* line 130, ../sass/_card.scss */
   .card .shape-container .shape.blue:before {
     border-color: #149ECC;
   }
-  /* line 134, ../sass/_card.scss */
+  /* line 133, ../sass/_card.scss */
   .card .shape-container .shape.orange:before {
     border-color: #FF974F;
   }

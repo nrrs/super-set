@@ -30,7 +30,7 @@ This project will be implemented with the following technologies:
 - HTML5/CSS3 (HTML5 Boilerplate & Modernizr)
 - Webpack & Sass
 
-The game utilizes `ES6` classes. This game was created using a total of 3.
+The game is constructed with three `ES6` classes.
 
 `Game`: It handles the logic for creating, timing, and evaluating sets.
 

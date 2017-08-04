@@ -38,82 +38,76 @@ h1 {
   display: none;
 }
 
-/* line 16, ../sass/_splash.scss */
+/* line 15, ../sass/_splash.scss */
 .steps {
   max-width: 800px;
   position: relative;
 }
-/* line 19, ../sass/_splash.scss */
+/* line 18, ../sass/_splash.scss */
 .steps .step {
   display: flex;
   padding: 10px;
 }
 
-/* line 24, ../sass/_splash.scss */
+/* line 23, ../sass/_splash.scss */
 #intro {
   flex: 1;
   text-align: center;
   flex-direction: column;
 }
-/* line 28, ../sass/_splash.scss */
+/* line 27, ../sass/_splash.scss */
 #intro h2 {
   margin-top: 0;
 }
-/* line 31, ../sass/_splash.scss */
+/* line 30, ../sass/_splash.scss */
 #intro button {
   background: #fff;
   border: 1px solid #e6e6e6;
   border-radius: 3px;
   padding: 10px 20px;
 }
-/* line 36, ../sass/_splash.scss */
+/* line 35, ../sass/_splash.scss */
 #intro button:hover {
   background: #28B78D;
   color: #fff;
 }
 
-/* line 42, ../sass/_splash.scss */
+/* line 41, ../sass/_splash.scss */
 #instructions,
 #examples,
 #controls {
   flex: 1;
-  padding: 10px;
-}
-/* line 47, ../sass/_splash.scss */
-#instructions p,
-#examples p,
-#controls p {
-  margin-top: 0px;
+  padding: 0px 10px;
 }
 
 @media (max-width: 660px) {
-  /* line 53, ../sass/_splash.scss */
+  /* line 49, ../sass/_splash.scss */
   .step {
     flex-direction: column;
   }
 
-  /* line 56, ../sass/_splash.scss */
+  /* line 52, ../sass/_splash.scss */
   #instructions,
   #examples {
     flex: 1;
   }
 }
-/* line 62, ../sass/_splash.scss */
+/* line 58, ../sass/_splash.scss */
 .green {
   color: #28B78D;
 }
 
-/* line 66, ../sass/_splash.scss */
+/* line 59, ../sass/_splash.scss */
 .orange {
   color: #FF974F;
 }
 
-/* line 70, ../sass/_splash.scss */
+/* line 60, ../sass/_splash.scss */
 .red {
   color: #ff4f5f;
 }
 
-/* line 74, ../sass/_splash.scss */
+/* line 61, ../sass/_splash.scss */
 .blue {
   color: #149ECC;
 }

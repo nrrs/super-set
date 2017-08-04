@@ -12,7 +12,6 @@
     display: none;
   }
 }
-
 .steps {
   max-width: 800px;
   position: relative;
@@ -43,10 +42,7 @@
 #examples,
 #controls {
   flex: 1;
-  padding: $var;
-  p {
-    margin-top: 0px;
-  }
+  padding: 0px $var;
 }
 
 @media (max-width: 660px) {
@@ -59,18 +55,7 @@
   }
 }
 
-.green {
-  color: $green;
-}
-
-.orange {
-  color: $orange;
-}
-
-.red {
-  color: $red;
-}
-
-.blue {
-  color: $blue;
-}
+.green { color: $green; }
+.orange { color: $orange; }
+.red { color: $red; }
+.blue { color: $blue; }

@@ -8,7 +8,7 @@ The game evolved out of a coding system that the designer used in her job as a g
 
 As a patterns recognition game, your goal is to identify a set of 3 cards. Each card has 4 main characteristics: shape, color, pattern, and count. Any combination of the 4 can be a valid set, as long as each characteristic is the same or completely different.
 
-![demo](/docs/demo_scaled.gif)
+![demo](/docs/demo.gif)
 
 Set can be played solo (timed) or against others (highest number of books wins). In this implementation, your goal is to find a set within 30 seconds. If you just want to play, feel free to ignore the game over alert and continue playing!
 

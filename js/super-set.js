@@ -2,6 +2,7 @@
 let selectedCards = [];
 let currentBoard = [];
 let setScore = 0;
+let defaultTimer = 30;
 
 function shuffle(cards) {
   let currentIdx = cards.length;
@@ -21,7 +22,41 @@ class Game {
     const deck = new Deck();
     this.deck = deck;
     this.deal(12, deck);
+    this.timer = document.getElementById('timer');
+    this.currentTimer = null;
+    this.startTimer = this.startTimer.bind(this);
+    this.clearTimer = this.clearTimer.bind(this);
     document.getElementById('deal-button').onclick = this.redeal.bind(this);
+    document.getElementById('play').onclick = () => this.play();
+  }
+
+  play() {
+    console.log("Let's play Set!");
+    document.getElementById('splash').className = "hidden";
+    this.startTimer();
+  }
+
+  gameOver() {
+    this.clearTimer();
+    document.getElementById('alerts').className = "error game-over bounceInDown";
+    document.getElementById('alerts').innerHTML = "GAME OVER!";
+  }
+
+  startTimer() {
+    console.log('Timer Started');
+    this.timer.value = `${defaultTimer}`;
+    this.currentTimer = setInterval(() => {
+      this.timer.value = parseInt(this.timer.value) - 1;
+      if (this.timer.value === "0") {
+        this.gameOver();
+      }
+    }, 1000);
+  }
+
+  clearTimer() {
+    console.log('Timer Cleared');
+    clearInterval(this.currentTimer);
+    this.timer.value = `${defaultTimer}`;
   }
 
   redeal() {
@@ -54,15 +89,19 @@ class Game {
             const drawn = this.deck.shift();
             currentBoard.push(drawn);
             const newCard = this.createNewCard(drawn, i);
+            newCard.classList.add('zoomIn');
             bye.parentNode.replaceChild(newCard, bye);
           } else {  // Deck is empty. Clean up the board.
             bye.parentNode.removeChild(bye);
           }
         });
       }, 1500);
+      console.log('valid set, reset timer');
+      this.clearTimer();
+      this.startTimer();
     } else {
-      console.log(document.querySelectorAll('.selected'));
-      document.querySelectorAll('.selected').forEach( el => {
+      Array.from(document.querySelectorAll('.selected')).forEach( el => {
+        el.classList.remove('shake');
         el.classList.add('shake');
       });
       this.flash('error', 'Not a valid set!');
@@ -194,7 +233,6 @@ class Game {
   }
 
   deal(n) {
-  // deal(n, deck) {
     currentBoard = [];
     const nArray = [];
     for (let i = 0; i < n; i++) {

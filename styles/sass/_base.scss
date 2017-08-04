@@ -1,6 +1,16 @@
 body {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   background: $bg;
   padding: $var;
+  font-family: 'Quicksand', sans-serif;
+  font-size: $var*2;
+  font-weight: light;
 }
 
 h1 {

@@ -17,22 +17,20 @@
 
       <header>
         <section class="title-container">
-          <h1>Super Set</h1>
+          <h1 id="super-set">Super Set</h1>
         </section>
-        <div id="alerts" class="animated">
-          <button id="rules">How to play</button>
+        <div id="alerts" class="">
+          Enjoy!
         </div>
         <section class="count-container">
           <div class="deal-box">
             <button id="deal-button">deal</button>
           </div>
-          <div class="points-box">
-            <label for="points">Sets:</label>
-            <input id="points" type="text" value="0" readonly/>
-          </div>
           <div class="timer-box">
-            <label for="timer">Timer:</label>
-            <input id="timer" type="text" value="30" />
+            <input id="timer" type="text" placeholder="timer" readonly />
+          </div>
+          <div class="points-box">
+            <input id="points" type="text" placeholder="sets" readonly/>
           </div>
         </section>
       </header>
@@ -50,6 +48,46 @@
         <div id="card-10" class="card-container"></div>
         <div id="card-11" class="card-container"></div>
         <div id="card-12" class="card-container"></div>
+      </div>
+
+      <div id="splash">
+        <section class="steps">
+          <div class="step">
+            <div id="intro">
+              <h2>How to play Set!</h2>
+              <button id="play">play</button><br/>
+            </div>
+          </div>
+
+          <div class="step">
+            <div id="instructions">
+              <strong>Instructions:</strong>
+              <p>A set consist of <strong class="green">3 cards</strong>.</p>
+              <p>Each card has <strong class="orange">4 main characteristics</strong>.<br/>
+                shape, color, pattern, and count.</p>
+              <p>Any combination of the <strong class="orange">4</strong> can be a valid set, as long as each characteristic is <strong class="blue">the same</strong> or <strong class="red">completely different</strong>.</p>
+            </div>
+
+            <div id="examples">
+              <p><strong>Example 1:</strong><br/>
+                <img src="./img/demo-1.jpg" title="Super Set demo 1"/></p>
+
+              <p><strong>Example 2:</strong><br/>
+                <img src="./img/demo-2.jpg" title="Super Set demo 1"/></p>
+            </div>
+          </div>
+
+          <div class="step">
+            <div id="controls">
+              <strong>Controls (top-right): </strong>
+              <ul>
+                <li><strong><i>DEAL</i></strong> Click to shuffle the board if you get stuck.</li>
+                <li><strong><i>TIMER</i></strong> Hurry! You have 30s to find a set!</li>
+                <li><strong><i>SETS</i></strong> tracks your score. 27 wins!</li>
+              </ul>
+            </div>
+          </div>
+        </section>
       </div>
 
       <script src="js/src/bundle.js"></script>

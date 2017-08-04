@@ -1,17 +1,5 @@
-body {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  font-family: 'Poiret One', sans-serif;
-  font-size: $var*2;
-}
-
 header {
-  padding: $var/2 $var;
+  padding: $var;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -30,49 +18,45 @@ header {
       margin-left: $var;
     }
   }
-  #deal-button,
-  #points,
-  #timer {
-    // font-size: $var*5;
-    background: #fff;
-    width: 100%;
-    text-align: center;
-    font-weight: bold;
-    border: 1px solid #e6e6e6;
-    border-radius: 3px;
-    line-height: 2em;
-    padding: $var/2;
-    box-sizing: border-box;
-    outline: none;
-  }
-  #deal-button:hover {
-    background: $green;
-    color: #fff;
-  }
+}
+#deal-button,
+#points,
+#timer {
+  background: #fff;
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+  border: 1px solid #e6e6e6;
+  border-radius: 3px;
+  line-height: 2em;
+  padding: $var/2;
+  box-sizing: border-box;
+  outline: none;
+}
+#deal-button:hover {
+  background: $green;
+  color: #fff;
 }
 #alerts {
   background-color: #fff;
   font-size: $var*2.5;
-  padding: $var;
+  font-weight: bold;
+  padding: $var $var*1.5;
   border-radius: 3px;
   border: 1px solid #e6e6e6;
   &.success {
     background-color: $green;
+    color: #fff;
   }
   &.error {
     background-color: $red;
+    color: #fff;
   }
 }
-
 #board {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   height: 100%;
   box-sizing: border-box;
-}
-
-#super-set {
-  background-color: #fafafa;
-  transition: all 0.5s ease;
 }

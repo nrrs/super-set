@@ -1,16 +1,5 @@
-@import url("https://fonts.googleapis.com/css?family=Poiret+One");
+@import url("https://fonts.googleapis.com/css?family=Quicksand:300,500,700");
 /* line 1, ../sass/_base.scss */
-body {
-  background: #fafafa;
-  padding: 10px;
-}
-
-/* line 6, ../sass/_base.scss */
-h1 {
-  margin: 0px;
-}
-
-/* line 1, ../sass/_board.scss */
 body {
   position: absolute;
   height: 100%;
@@ -19,39 +8,145 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  font-family: 'Poiret One', sans-serif;
+  background: #fafafa;
+  padding: 10px;
+  font-family: 'Quicksand', sans-serif;
   font-size: 20px;
+  font-weight: light;
 }
 
-/* line 13, ../sass/_board.scss */
+/* line 16, ../sass/_base.scss */
+h1 {
+  margin: 0px;
+}
+
+/* line 1, ../sass/_splash.scss */
+#splash {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(250, 250, 250, 0.9);
+  z-index: 999;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  overflow: scroll;
+}
+/* line 11, ../sass/_splash.scss */
+#splash.hidden {
+  display: none;
+}
+
+/* line 16, ../sass/_splash.scss */
+.steps {
+  max-width: 800px;
+  position: relative;
+}
+/* line 19, ../sass/_splash.scss */
+.steps .step {
+  display: flex;
+  padding: 10px;
+}
+
+/* line 24, ../sass/_splash.scss */
+#intro {
+  flex: 1;
+  text-align: center;
+  flex-direction: column;
+}
+/* line 28, ../sass/_splash.scss */
+#intro h2 {
+  margin-top: 0;
+}
+/* line 31, ../sass/_splash.scss */
+#intro button {
+  background: #fff;
+  border: 1px solid #e6e6e6;
+  border-radius: 3px;
+  padding: 10px 20px;
+}
+/* line 36, ../sass/_splash.scss */
+#intro button:hover {
+  background: #28B78D;
+  color: #fff;
+}
+
+/* line 42, ../sass/_splash.scss */
+#instructions,
+#examples {
+  flex: 1;
+  padding: 10px;
+}
+/* line 46, ../sass/_splash.scss */
+#instructions p,
+#examples p {
+  margin-top: 0px;
+}
+
+@media (max-width: 660px) {
+  /* line 53, ../sass/_splash.scss */
+  .step {
+    flex-direction: column;
+  }
+
+  /* line 56, ../sass/_splash.scss */
+  #instructions,
+  #examples {
+    flex: 1;
+  }
+}
+/* line 62, ../sass/_splash.scss */
+.green {
+  color: #28B78D;
+}
+
+/* line 66, ../sass/_splash.scss */
+.orange {
+  color: #FF974F;
+}
+
+/* line 70, ../sass/_splash.scss */
+.red {
+  color: #ff4f5f;
+}
+
+/* line 74, ../sass/_splash.scss */
+.blue {
+  color: #149ECC;
+}
+
+/* line 1, ../sass/_board.scss */
 header {
-  padding: 5px 10px;
+  padding: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
   box-sizing: border-box;
 }
-/* line 20, ../sass/_board.scss */
+/* line 8, ../sass/_board.scss */
 header .points-box,
 header .timer-box {
   max-width: 80px;
 }
-/* line 24, ../sass/_board.scss */
+/* line 12, ../sass/_board.scss */
 header .count-container {
   display: flex;
   align-items: flex-end;
 }
-/* line 27, ../sass/_board.scss */
+/* line 15, ../sass/_board.scss */
 header .count-container > div {
   width: 100%;
   text-align: center;
   margin-left: 10px;
 }
-/* line 33, ../sass/_board.scss */
-header #deal-button,
-header #points,
-header #timer {
+
+/* line 22, ../sass/_board.scss */
+#deal-button,
+#points,
+#timer {
   background: #fff;
   width: 100%;
   text-align: center;
@@ -63,42 +158,40 @@ header #timer {
   box-sizing: border-box;
   outline: none;
 }
-/* line 48, ../sass/_board.scss */
-header #deal-button:hover {
+
+/* line 36, ../sass/_board.scss */
+#deal-button:hover {
   background: #28B78D;
   color: #fff;
 }
 
-/* line 53, ../sass/_board.scss */
+/* line 40, ../sass/_board.scss */
 #alerts {
   background-color: #fff;
   font-size: 25px;
-  padding: 10px;
+  font-weight: bold;
+  padding: 10px 15px;
   border-radius: 3px;
   border: 1px solid #e6e6e6;
 }
-/* line 59, ../sass/_board.scss */
+/* line 47, ../sass/_board.scss */
 #alerts.success {
   background-color: #28B78D;
+  color: #fff;
 }
-/* line 62, ../sass/_board.scss */
+/* line 51, ../sass/_board.scss */
 #alerts.error {
-  background-color: #d992a6;
+  background-color: #ff4f5f;
+  color: #fff;
 }
 
-/* line 67, ../sass/_board.scss */
+/* line 56, ../sass/_board.scss */
 #board {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   height: 100%;
   box-sizing: border-box;
-}
-
-/* line 75, ../sass/_board.scss */
-#super-set {
-  background-color: #fafafa;
-  transition: all 0.5s ease;
 }
 
 /* line 1, ../sass/_card.scss */
@@ -235,12 +328,6 @@ header #deal-button:hover {
     border-color: #FF974F;
   }
 }
-/* line 1, ../sass/_animations.scss */
-.animated {
-  animation-duration: 0.70s;
-  animation-fill-mode: both;
-}
-
 @keyframes bounceInDown {
   from, 60%, 75%, 90%, to {
     animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -263,9 +350,10 @@ header #deal-button:hover {
     transform: none;
   }
 }
-/* line 34, ../sass/_animations.scss */
+/* line 29, ../sass/_animations.scss */
 .bounceInDown {
-  animation-name: bounceInDown;
+  animation: bounceInDown 0.7s;
+  animation-fill-mode: both;
 }
 
 @keyframes bounceOutUp {
@@ -281,9 +369,10 @@ header #deal-button:hover {
     transform: translate3d(0, -2000px, 0);
   }
 }
-/* line 54, ../sass/_animations.scss */
+/* line 50, ../sass/_animations.scss */
 .bounceOutUp {
-  animation-name: bounceOutUp;
+  animation: bounceOutUp 0.7s;
+  animation-fill-mode: both;
 }
 
 @keyframes shake {
@@ -300,7 +389,7 @@ header #deal-button:hover {
     transform: translateX(5px);
   }
 }
-/* line 65, ../sass/_animations.scss */
+/* line 62, ../sass/_animations.scss */
 .shake {
   animation: shake .1s 5;
 }
@@ -314,7 +403,8 @@ header #deal-button:hover {
     opacity: 1;
   }
 }
-/* line 81, ../sass/_animations.scss */
+/* line 78, ../sass/_animations.scss */
 .zoomIn {
-  animation-name: zoomIn;
+  animation: zoomIn 0.7s;
+  animation-fill-mode: both;
 }

@@ -2,8 +2,9 @@
 
 ### About the Game
 
-According to [Wikipedia](https://en.wikipedia.org/wiki/Set_(game)...
-> "Set is a real-time card game designed by Marsha Falco in 1974 and published by Set Enterprises in 1991..."
+According to [Wikipedia](https://en.wikipedia.org/wiki/Set_(game))...
+> "Set is a real-time card game designed by Marsha Falco in 1974 and published by Set Enterprises in 1991. The deck consists of 81 cards varying in four features...
+The game evolved out of a coding system that the designer used in her job as a geneticist."
 
 As a patterns recognition game, your goal is to identify a set of 3 cards. Each card has 4 main characteristics: shape, color, pattern, and count. Any combination of the 4 can be a valid set, as long as each characteristic is the same or completely different.
 
